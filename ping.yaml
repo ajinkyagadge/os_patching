@@ -5,3 +5,16 @@
   tasks:
     - name: ping
       ping:
+
+- name: Create os_patching directory
+  become: yes
+  tasks:
+    - name: Set os_patching directory path
+      set_fact:
+        os_patching.os_patching_folder: ajinkyagadge/directory1
+
+    - name: Create os_patching directory
+      file:
+        path: "{{ os_patching.os_patching_folder }}"
+        state: directory
+        recurse: yes
