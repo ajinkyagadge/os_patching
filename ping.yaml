@@ -1,0 +1,7 @@
+---
+- name: Ping test for linux clients
+  hosts: all
+  gather_facts: True
+  tasks:
+    - name: ping
+      ping:
