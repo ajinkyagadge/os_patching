@@ -2,13 +2,11 @@
 - name: Ping test for linux clients
   hosts: all
   gather_facts: True
+  become: yes
   tasks:
     - name: ping
       ping:
 
-- name: Create os_patching directory
-  become: yes
-  tasks:
     - name: Set os_patching directory path
       set_fact:
         os_patching.os_patching_folder: ajinkyagadge/directory1
