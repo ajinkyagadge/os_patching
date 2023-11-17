@@ -26,7 +26,7 @@
    
     - name: Copy the clear-softwaredistribution.ps1 script
       assemble:
-        src: ajinkyagadge/clear-softwaredistribution.ps1.j2                                     # Source directory containing the script template
+        src: ajinkyagadge/                                    # Source directory containing the script template
         dest: "{{ os_patching_folder }}/clear-softwaredistribution.ps1"
         mode: '0644'
         
