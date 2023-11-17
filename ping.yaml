@@ -9,7 +9,7 @@
 
     - name: Set os_patching directory path
       set_fact:
-        os_patching_folder: ajinkyagadge/directory111
+        os_patching_folder: ajinkyagadge/directory2
 
     - name: Create os_patching directory
       file:
