@@ -17,9 +17,16 @@
         state: directory
         recurse: yes
 
-    - name: Copy the template file
-      template:
-        src: ajinkyagadge/clear-softwaredistribution.ps1.j2  # Assuming you have a Jinja2 template file
+   # - name: Copy the template file
+   #   template:
+   #     src: ajinkyagadge/clear-softwaredistribution.ps1.j2  # Assuming you have a Jinja2 template file
+   #     dest: "{{ os_patching_folder }}/clear-softwaredistribution.ps1"
+   #   vars:
+   #     os_patching: "{{ os_patching }}"  # Assuming os_patching is defined in your Ansible variables
+   
+    - name: Copy the clear-softwaredistribution.ps1 script
+      assemble:
+        src: ajinkyagadge/clear-softwaredistribution.ps1.j2                                     # Source directory containing the script template
         dest: "{{ os_patching_folder }}/clear-softwaredistribution.ps1"
-      vars:
-        os_patching: "{{ os_patching }}"  # Assuming os_patching is defined in your Ansible variables
+        mode: '0644'
+        
