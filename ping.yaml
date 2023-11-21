@@ -10,6 +10,7 @@
     - name: Set os_patching directory path
       set_fact:
         os_patching_folder: ajinkyagadge/directory2
+        os_patching_folder_certificates : ajinkyagadge/directory21/certificates
 
     - name: Create os_patching directory
       file:
@@ -30,4 +31,9 @@
         dest: "{{ os_patching_folder }}/clear-softwaredistribution.ps1"
         remote_src: yes
         mode: '0664'
-        
+
+    - name: Create os_patching_certs directory and chek it exists or not
+      ansible.builtin.file:
+        path: "{{ os_patching_folder_certificates }}"
+        state: directory
+      when: os_patching_folder_certificates is defined and os_patching_folder_certificates is not none
