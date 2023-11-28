@@ -5,7 +5,7 @@
   become: yes
 
   vars_files:
-    - /vars/ext_vars.yml
+    - ./vars/ext_vars.yml
   
   tasks:
     - name: ping
