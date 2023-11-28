@@ -1,6 +1,6 @@
 ---
 - name: Ping test for linux clients
-  hosts: all
+  hosts: group_name
   gather_facts: True
   become: yes
   tasks:
