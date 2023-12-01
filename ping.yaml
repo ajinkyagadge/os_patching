@@ -42,7 +42,7 @@
         state: directory
       when: os_patching_folder_certificates is defined and os_patching_folder_certificates is not none
 
-     - name: Print File Paths
+    - name: Print File Paths
       ansible.builtin.debug:
         msg: "File Path: {{ item }}"
       loop: "{{ file_paths }}"
