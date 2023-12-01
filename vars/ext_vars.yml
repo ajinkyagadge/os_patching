@@ -3,8 +3,8 @@ os_patching_folder: ajinkyagadge/os_patching                         #default['o
 certificates_folder : ajinkyagadge/certificates          # default['os_patching']['certs_dir'] = 'c:\ops\certs'
 
 file_paths:
-  - ajinkyagadge/certificates/infra-wsus-amer_resideo_com.crt     # default['os_patching']['certs'] = [ 'infra-wsus-amer_resideo_com.crt','infra-wsus-emea_resideo_com.crt','infra-wsus-aws_resideo_com.crt','infra-wsus-azure_resideo_com.crt','WPP-certs.cer']
-  - ajinkyagadge/certificates/infra-wsus-emea_resideo_com.crt
-  - ajinkyagadge/certificates/infra-wsus-aws_resideo_com.crt
-  - ajinkyagadge/certificates/infra-wsus-azure_resideo_com.crt
-  - ajinkyagadge/certificates/WPP-certs.cer
+  - infra-wsus-amer_resideo_com.crt     # default['os_patching']['certs'] = [ 'infra-wsus-amer_resideo_com.crt','infra-wsus-emea_resideo_com.crt','infra-wsus-aws_resideo_com.crt','infra-wsus-azure_resideo_com.crt','WPP-certs.cer']
+  - infra-wsus-emea_resideo_com.crt
+  - infra-wsus-aws_resideo_com.crt
+  - infra-wsus-azure_resideo_com.crt
+  - WPP-certs.cer
