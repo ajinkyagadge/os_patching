@@ -36,14 +36,21 @@
         remote_src: yes
         mode: '0664'
 
-    - name: Create os_patching_certs directory and chek it exists or not
+    - name: Create certificates directory and chek it exists or not
       ansible.builtin.file:
-        path: "{{ os_patching_folder_certificates }}"
+        path: "{{ certificates_folder }}"
         state: directory
-      when: os_patching_folder_certificates is defined and os_patching_folder_certificates is not none
+      when: certificates_folder is defined and certificates_folder is not none
 
     - name: Print File Paths
       ansible.builtin.debug:
         msg: "File Path: {{ item }}"
+      loop: "{{ file_paths }}"
+
+    - name: Create Certificates
+      ansible.builtin.file:
+        path: "{{ certificates_folder }}/{{ item }}"
+        state: touch
+      when: certificates_folder is defined and certificates_folder is not none
       loop: "{{ file_paths }}"
       
