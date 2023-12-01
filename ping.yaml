@@ -47,10 +47,10 @@
         msg: "File Path: {{ item }}"
       loop: "{{ file_paths }}"
 
-    - name: Create Certificates
-      ansible.builtin.file:
-        path: "{{ certificates_folder }}/{{ item }}"
-        state: touch
+    - name: Copy Certificates
+      ansible.builtin.copy:
+        src: "{{               }}/{{ item }}"
+        dest: "{{ certificates_folder }}/{{ item }}"
       when: certificates_folder is defined and certificates_folder is not none
       loop: "{{ file_paths }}"
       
