@@ -48,7 +48,7 @@
       loop: "{{ file_paths }}"
 
     - name: Copy Certificates
-      ansible.builtin.copy:
+      copy:
         src: "{{ project_folder }}/{{ item }}"
         dest: "{{ certificates_folder }}/{{ item }}"
       when: certificates_folder is defined and certificates_folder is not none
