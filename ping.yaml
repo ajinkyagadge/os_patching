@@ -51,6 +51,7 @@
       copy:
         src: "{{ project_folder }}/{{ item }}"
         dest: "{{ certificates_folder }}/{{ item }}"
+        remote_src: yes
       when: certificates_folder is defined and certificates_folder is not none
       loop: "{{ file_paths }}"
       
