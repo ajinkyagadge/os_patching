@@ -1,8 +1,8 @@
-os_patching_folder: projectresideo/os_patching                         #default['os_patching']['os_patching_folder'] = 'c:\ops\os_patching'
+os_patching_folder: C:\projectresideo\os_patching                         #default['os_patching']['os_patching_folder'] = 'c:\ops\os_patching'
 
-certificates_folder : projectresideo/certificates          # default['os_patching']['certs_dir'] = 'c:\ops\certs'
+certificates_folder : C:\projectresideo\certificates          # default['os_patching']['certs_dir'] = 'c:\ops\certs'
 
-project_folder: projectresideo
+project_folder: C:\projectresideo
 
 file_paths:
   - infra-wsus-amer_resideo_com.crt     # default['os_patching']['certs'] = [ 'infra-wsus-amer_resideo_com.crt','infra-wsus-emea_resideo_com.crt','infra-wsus-aws_resideo_com.crt','infra-wsus-azure_resideo_com.crt','WPP-certs.cer']
