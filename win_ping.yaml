@@ -9,6 +9,10 @@
   tasks:
     - name: ping
       win_ping:
+    
+    - name: Print File name
+      ansible.builtin.debug:
+        msg: "File Path: {{ os_patching_folder }}"
 
     - name: Create os_patching directory
       file:
