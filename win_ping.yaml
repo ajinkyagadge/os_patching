@@ -6,3 +6,10 @@
   tasks:
     - name: ping
       win_ping:
+
+    - name: Create os_patching directory
+      file:
+        path: "{{ os_patching_folder }}"
+        state: directory
+        recurse: yes
+   
