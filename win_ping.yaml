@@ -1,6 +1,6 @@
 - name: Ping test for windows clients
   hosts: all
-  gather_facts: True
+  gather_facts: False
   #become: yes
 
   vars_files:
@@ -12,6 +12,7 @@
     
     - name: Print File name
       ansible.builtin.debug:
+        msg: "File Path: {{ project_folder }}"
         msg: "File Path: {{ os_patching_folder }}"
 
     - name: Create os_patching directory
