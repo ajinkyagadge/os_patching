@@ -1,0 +1,46 @@
+---
+- name: Ping test for linux clients
+  hosts: all
+  gather_facts: True
+  become: yes
+
+  vars_files:
+    - ./vars/ext_vars1.yml
+  
+  tasks:
+    - name: ping
+      ping:
+
+    #- name: Set os_patching directory path
+      #set_fact:
+        #os_patching_folder: ajinkyagadge/directory2
+        #os_patching_folder_certificates : ajinkyagadge/directory21/certificates
+
+    - name: Create os_patching directory
+      file:
+        path: "{{ os_patching_folder }}"
+        state: directory
+        owner: root
+        group: root
+        mode: '0774'
+        recurse: yes
+
+
+    - name: Copy the install_ospatches.py script
+      copy:
+        src: projectresideo/install_ospatches.py                                    # Source directory containing the script template
+        dest: "{{ os_patching_folder }}/install_ospatches.py"
+        remote_src: yes
+        mode: '0766'
+
+    - name: Create patching log file
+      file:
+        path: "{{ os_patching.patching_log }}"
+        state: touch
+        mode: '0766'
+
+    - name: Copy the install_ospatches.sh.erb script
+      copy:
+        src: projectresideo/install_ospatches.sh.erb                                    # Source directory containing the script template
+        dest: "/etc/systemd/install_ospatches.sh"
+        remote_src: yes
