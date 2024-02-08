@@ -35,7 +35,7 @@
 
     - name: Create patching log file
       file:
-        path: "{{ os_patching.patching_log }}"
+        path: "{{ os_patching_folder }}/patching_log"
         state: touch
         mode: '0766'
 
