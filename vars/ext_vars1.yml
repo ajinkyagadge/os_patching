@@ -1,0 +1,5 @@
+os_patching_folder: ""                         #default['os_patching']['os_patching_folder'] = 'c:\ops\os_patching'
+
+certificates_folder : ""          # default['os_patching']['certs_dir'] = 'c:\ops\certs'
+
+project_folder: "C:\\projectresideo"
