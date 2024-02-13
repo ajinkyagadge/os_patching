@@ -11,11 +11,6 @@
     - name: ping
       ping:
 
-    #- name: Set os_patching directory path
-      #set_fact:
-        #os_patching_folder: ajinkyagadge/directory2
-        #os_patching_folder_certificates : ajinkyagadge/directory21/certificates
-
     - name: Create os_patching directory
       file:
         path: "{{ os_patching_folder }}"
