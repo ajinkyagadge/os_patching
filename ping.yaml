@@ -2,8 +2,8 @@
 - name: Ping test for linux clients
   hosts: all
   gather_facts: True
-  #become: yes
-  become: runas
+  become: yes
+  become_method: runas
 
   vars_files:
     - ./vars/ext_vars.yml
