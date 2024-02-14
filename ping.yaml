@@ -3,7 +3,7 @@
   hosts: all
   gather_facts: True
   #become: yes
-  become_method: runas
+  become: runas
 
   vars_files:
     - ./vars/ext_vars.yml
