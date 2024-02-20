@@ -23,8 +23,8 @@
 
     - name: Copy the clear-softwaredistribution.ps1 script
       win_copy:
-        src: "{{ project_folder }}/clear-softwaredistribution.ps1.j2"                                    # Source directory containing the script template
-        dest: "{{ os_patching_folder }}/clear-softwaredistribution.ps1"
+        src: "{{ project_folder }}\\clear-softwaredistribution.ps1.j2"                                    # Source directory containing the script template
+        dest: "{{ os_patching_folder }}\\clear-softwaredistribution.ps1"
         remote_src: yes
         mode: '0664'
 
@@ -41,8 +41,8 @@
 
     - name: Copy Certificates
       win_copy:
-        src: "{{ project_folder }}/{{ item }}"
-        dest: "{{ certificates_folder }}/{{ item }}"
+        src: "{{ project_folder }}\\{{ item }}"
+        dest: "{{ certificates_folder }}\\{{ item }}"
         remote_src: yes
       when: certificates_folder is defined and certificates_folder is not none
       loop: "{{ file_paths }}"
