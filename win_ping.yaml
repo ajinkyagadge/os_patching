@@ -1,7 +1,7 @@
 - name: Ping test for windows clients
   hosts: all
   gather_facts: False
-  #become: yes
+  become: yes
 
   vars_files:
     - ./vars/ext_vars.yml  
