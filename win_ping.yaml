@@ -36,7 +36,7 @@
       ansible.windows.win_copy:
         src: "C:\\projectresideo\\demofile.txt"                             # Source directory containing the script template
         #src: "{{ lookup('file', '/path/to/demofile') }}"
-        dest: "C:\\projectresideo\\os_patching_folder\\demofile1"
+        dest: "C:\\projectresideo\\os_patching\\demofile1"
         remote_src: yes
         mode: '0664' 
 
