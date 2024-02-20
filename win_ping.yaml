@@ -16,7 +16,7 @@
         msg: "File Path2: {{ os_patching_folder }}"
 
     - name: Create os_patching directory
-      file:
+      win_file:
         path: "{{ os_patching_folder }}"
         state: directory
         recurse: yes
