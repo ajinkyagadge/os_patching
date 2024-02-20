@@ -21,13 +21,6 @@
         state: directory
         recurse: yes
 
-   # - name: Copy the clear-softwaredistribution.ps1 script
-     # win_copy:
-      #  src: "{{ project_folder }}\\clear-softwaredistribution.ps1.j2"                                    # Source directory containing the script template
-       # dest: "{{ os_patching_folder }}\\clear-softwaredistribution.ps1"
-       # remote_src: yes
-      #  mode: '0664' 
-
     - name: Create certificates directory and chek it exists or not
       ansible.windows.win_file:
         path: "{{ certificates_folder }}"
@@ -38,6 +31,13 @@
       ansible.builtin.debug:
         msg: "File Path: {{ item }}"
       loop: "{{ file_paths }}"
+
+    - name: Copy the clear-softwaredistribution.ps1 script
+      win_copy:
+        src: "{{ project_folder }}\\clear-softwaredistribution.ps1.j2"                                    # Source directory containing the script template
+        dest: "{{ os_patching_folder }}\\clear-softwaredistribution.ps1"
+        remote_src: yes
+        mode: '0664' 
 
     - name: Copy Certificates
       win_copy:
