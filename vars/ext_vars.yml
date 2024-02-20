@@ -1,4 +1,4 @@
-os_patching_folder: "C:\\projectresideo\\os_patching"                         #default['os_patching']['os_patching_folder'] = 'c:\ops\os_patching'
+os_patching_folder: "C:\projectresideo\os_patching"                         #default['os_patching']['os_patching_folder'] = 'c:\ops\os_patching'
 
 certificates_folder : "C:\\projectresideo\\certificates"          # default['os_patching']['certs_dir'] = 'c:\ops\certs'
 
