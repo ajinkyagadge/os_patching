@@ -34,7 +34,7 @@
 
     - name: Copy the clear-softwaredistribution.ps1 script
       ansible.windows.win_copy:
-        src: "C:\\projectresideo\\demofile"                             # Source directory containing the script template
+        src: "C:\\projectresideo\\demofile.txt"                             # Source directory containing the script template
         #src: "{{ lookup('file', '/path/to/demofile') }}"
         dest: "C:\\projectresideo\\os_patching_folder\\demofile1"
         remote_src: yes
