@@ -10,3 +10,10 @@ file_paths:
   - infra-wsus-aws_resideo_com.crt.txt 
   - infra-wsus-azure_resideo_com.crt.txt 
   - WPP-certs.cer.txt 
+
+certs_to_install:
+  - infra-wsus-amer_resideo_com.crt.txt    
+  - infra-wsus-emea_resideo_com.crt.txt 
+  - infra-wsus-aws_resideo_com.crt.txt 
+  - infra-wsus-azure_resideo_com.crt.txt 
+  - WPP-certs.cer.txt
