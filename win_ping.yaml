@@ -57,7 +57,7 @@
     #  when: certificates_folder is defined
     #  with_items: "{{ certs_to_install }}"
 
-    - name: Install certificate
+    - name: Installing Certificates
       win_certificate:
        src: "{{ certificates_folder }}/{{ item }}"
        store_name: MY
