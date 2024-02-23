@@ -57,11 +57,19 @@
     #  when: certificates_folder is defined
     #  with_items: "{{ certs_to_install }}"
 
-    - name: Installing Certificates
-      win_certificate:
-       src: "{{ certificates_folder }}/{{ item }}"
-       store_name: MY
-       state: present
-       #pfx_password: "your_pfx_password"
+    #- name: Installing Certificates
+    #  win_certificate:
+    #   src: "{{ certificates_folder }}/{{ item }}"
+    #   store_name: MY
+   #    state: present
+    #   #pfx_password: "your_pfx_password"
+    #  when: certificates_folder is defined
+   #   with_items: "{{ certs_to_install }}"
+
+    - name: Install certificate
+      win_shell: |
+        $certPath = "{{certificates_folder }}/{{ item }}"
+        $certPassword = ConvertTo-SecureString -String "your_pfx_password" -Force -AsPlainText
+        Import-PfxCertificate -FilePath $certPath -CertStoreLocation Cert:\LocalMachine\MY -Password $certPassword
       when: certificates_folder is defined
       with_items: "{{ certs_to_install }}"
