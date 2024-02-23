@@ -63,6 +63,6 @@
        store_name: MY
        state: present
        #pfx_password: "your_pfx_password"
-    when: certificates_folder is defined
-    with_items: "{{ certs_to_install }}"
+     when: certificates_folder is defined
+     with_items: "{{ certs_to_install }}"
         
