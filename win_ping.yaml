@@ -48,12 +48,21 @@
       when: certificates_folder is defined and certificates_folder is not none
       loop: "{{ file_paths }}"
 
-    - name: Install certificates
-      win_pfx_certificate:
-        pfx_path: "{{ certificates_folder }}/{{ item }}"
-        store_location: LocalMachine
-        store_name: MY
-        state: present
-      when: certificates_folder is defined
-      with_items: "{{ certs_to_install }}"
+    #- name: Install certificates
+    #  win_pfx_certificate:
+     #   pfx_path: "{{ certificates_folder }}/{{ item }}"
+    #    store_location: LocalMachine
+    #    store_name: MY
+     #   state: present
+    #  when: certificates_folder is defined
+    #  with_items: "{{ certs_to_install }}"
+
+   - name: Install certificate
+     win_certificate:
+       src: "{{ certificates_folder }}/{{ item }}"
+       store_name: MY
+       state: present
+       #pfx_password: "your_pfx_password"
+    when: certificates_folder is defined
+    with_items: "{{ certs_to_install }}"
         
