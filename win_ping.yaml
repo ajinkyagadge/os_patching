@@ -69,7 +69,14 @@
     - name: Install certificate
       win_shell: |
         $certPath = "{{certificates_folder }}/{{ item }}"
-        Import-PfxCertificate -FilePath $certPath -CertStoreLocation Cert:\LocalMachine\MY
+        $certContent = Get-Content $certPath
+        $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
+        $cert.Import([System.Text.Encoding]::UTF8.GetBytes($certContent))
+        $store = New-Object System.Security.Cryptography.X509Certificates.X509Store("MY", "LocalMachine")
+        $store.Open("ReadWrite")
+        $store.Add($cert)
+        $store.Close()
+      # Import-PfxCertificate -FilePath $certPath -CertStoreLocation Cert:\LocalMachine\MY
       # $certPassword = ConvertTo-SecureString -String "your_pfx_password" -Force -AsPlainText
       # Import-PfxCertificate -FilePath $certPath -CertStoreLocation Cert:\LocalMachine\MY -Password $certPassword
       when: certificates_folder is defined
