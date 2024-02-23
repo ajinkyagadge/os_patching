@@ -47,4 +47,12 @@
         remote_src: yes
       when: certificates_folder is defined and certificates_folder is not none
       loop: "{{ file_paths }}"
-   
+
+    - name: Install certificate
+      win_certificate:
+        src: "{{ os_patching_certs_dir }}/{{ item }}"
+        store_name: MY
+        user_store: no
+      when: os_patching_certs_dir is defined
+      with_items: "{{ certs_to_install }}"
+        
