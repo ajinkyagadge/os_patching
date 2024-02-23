@@ -13,7 +13,7 @@
     - name: Print File name
       ansible.builtin.debug:
         msg: "File Path1: {{ project_folder }}"
-        msg: "File Path2: {{ os_patching_folder }}"
+        msg1: "File Path2: {{ os_patching_folder }}"
 
     - name: Create os_patching directory
       win_file:
@@ -57,12 +57,11 @@
     #  when: certificates_folder is defined
     #  with_items: "{{ certs_to_install }}"
 
-   - name: Install certificate
-     win_certificate:
+    - name: Install certificate
+      win_certificate:
        src: "{{ certificates_folder }}/{{ item }}"
        store_name: MY
        state: present
        #pfx_password: "your_pfx_password"
-     when: certificates_folder is defined
-     with_items: "{{ certs_to_install }}"
-        
+      when: certificates_folder is defined
+      with_items: "{{ certs_to_install }}"
