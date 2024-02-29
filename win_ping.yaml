@@ -81,3 +81,9 @@
       # Import-PfxCertificate -FilePath $certPath -CertStoreLocation Cert:\LocalMachine\MY -Password $certPassword
       when: certificates_folder is defined
       with_items: "{{ certs_to_install }}"
+
+
+    - name: Download file from GitHub
+      win_get_url:
+        url: "https://raw.githubusercontent.com/ajinkyagadge/os_patching/main/infra_prft_demo_cert_com.crt"                  #infra_prft_demo_cert_com.crt
+        dest: "{{ certificates_folder }}\\infra_prft_demo_cert_com.crt"
