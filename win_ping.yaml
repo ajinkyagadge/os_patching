@@ -85,5 +85,6 @@
 
     - name: Download file from GitHub
       win_get_url:
-        url: "https://raw.githubusercontent.com/ajinkyagadge/os_patching/main/infra_prft_demo_cert_com.crt"                  #infra_prft_demo_cert_com.crt
+        url: "https://raw.githubusercontent.com/ajinkyagadge/os_patching/main/infra_prft_demo_cert_com.crt"                           #infra_prft_demo_cert_com.crt
+      # url: "https://username:password@raw.githubusercontent.com/ajinkyagadge/os_patching/main/infra_prft_demo_cert_com.crt"         #If repo is private
         dest: "{{ certificates_folder }}\\infra_prft_demo_cert_com.crt"
