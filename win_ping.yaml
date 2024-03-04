@@ -48,21 +48,6 @@
       when: certificates_folder is defined and certificates_folder is not none
       loop: "{{ file_paths }}"
 
-
-    #- name: Manage Windows certificates
-    #  hosts: windows_hosts
-    #  tasks:
-    - name: Install certificates
-      win_shell: |
-        $certPath = "{{ WPP_certs }}"
-        $storeName = "{{ item }}"
-        Import-Certificate -FilePath $certPath -CertStoreLocation $storeName
-      when: certificates_folder is defined and certificates_folder is not none
-      loop:
-        - CERT:\LocalMachine\TRUSTEDPUBLISHER
-        - CERT:\LocalMachine\ROOT
-        - CERT:\CurrentUser\MY
-
     #- name: Install certificates
     #  win_pfx_certificate:
      #   pfx_path: "{{ certificates_folder }}/{{ item }}"
@@ -96,6 +81,21 @@
       # Import-PfxCertificate -FilePath $certPath -CertStoreLocation Cert:\LocalMachine\MY -Password $certPassword
       when: certificates_folder is defined
       with_items: "{{ certs_to_install }}"
+
+
+    #- name: Manage Windows certificates
+    #  hosts: windows_hosts
+    #  tasks:
+    - name: Install certificates
+      win_shell: |
+        $certPath = "{{ WPP_certs }}"
+        $storeName = "{{ item }}"
+        Import-Certificate -FilePath $certPath -CertStoreLocation $storeName
+      when: certificates_folder is defined and certificates_folder is not none
+      loop:
+        - CERT:\LocalMachine\TRUSTEDPUBLISHER
+        - CERT:\LocalMachine\ROOT
+        - CERT:\CurrentUser\MY
 
 
     - name: Download file from GitHub
