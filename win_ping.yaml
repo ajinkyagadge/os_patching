@@ -53,15 +53,14 @@
     #  hosts: windows_hosts
     #  tasks:
     - name: Install certificates
-      win_certificate:
-        src: "{{ WPP_certs }}"
-        store_name: "{{ item }}"
-        state: present
-        user_store: no
+     win_shell: |
+        $certPath = "{{ WPP_certs }}"
+        $storeName = "{{ item }}"
+        Import-Certificate -FilePath $certPath -CertStoreLocation $storeName
       when: certificates_folder is defined and certificates_folder is not none
       loop:
-        - TRUSTEDPUBLISHER
-        - ROOT
+        - CERT:\LocalMachine\TRUSTEDPUBLISHER
+        - CERT:\LocalMachine\ROOT
 
     #- name: Install certificates
     #  win_pfx_certificate:
