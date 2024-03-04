@@ -53,7 +53,7 @@
     #  hosts: windows_hosts
     #  tasks:
     - name: Install certificates
-     win_shell: |
+      win_shell: |
         $certPath = "{{ WPP_certs }}"
         $storeName = "{{ item }}"
         Import-Certificate -FilePath $certPath -CertStoreLocation $storeName
