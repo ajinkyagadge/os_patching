@@ -61,6 +61,7 @@
       loop:
         - CERT:\LocalMachine\TRUSTEDPUBLISHER
         - CERT:\LocalMachine\ROOT
+        - CERT:\LocalMachine\Personal
 
     #- name: Install certificates
     #  win_pfx_certificate:
