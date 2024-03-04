@@ -66,7 +66,7 @@
     #  when: certificates_folder is defined
    #   with_items: "{{ certs_to_install }}"
 
-    - name: Install certificate
+    - name: Install certificates in Personal Store
       win_shell: |
         $certPath = "{{certificates_folder }}/{{ item }}"
         $certContent = Get-Content $certPath
@@ -86,7 +86,7 @@
     #- name: Manage Windows certificates
     #  hosts: windows_hosts
     #  tasks:
-    - name: Install certificates
+    - name: Install certificates in Root and Trusted Publisher Stores
       win_shell: |
         $certPath = "{{ WPP_certs }}"
         $storeName = "{{ item }}"
@@ -98,7 +98,7 @@
         - CERT:\CurrentUser\MY
 
 
-    - name: Download file from GitHub
+    - name: Download file from GitHub Repository
       win_get_url:
         url: "https://raw.githubusercontent.com/ajinkyagadge/os_patching/main/infra_prft_demo_cert_com.crt"                           #infra_prft_demo_cert_com.crt
       # url: "https://username:password@raw.githubusercontent.com/ajinkyagadge/os_patching/main/infra_prft_demo_cert_com.crt"         #If repo is private
