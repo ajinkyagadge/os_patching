@@ -1,19 +1,21 @@
-os_patching_folder: "C:\\projectresideo\\os_patching"                         #default['os_patching']['os_patching_folder'] = 'c:\ops\os_patching'
+os_patching_folder: "C:\\projectresideo\\os_patching"             #default['os_patching']['os_patching_folder'] = 'c:\ops\os_patching'
 
 certificates_folder : "C:\\projectresideo\\certificates"          # default['os_patching']['certs_dir'] = 'c:\ops\certs'
 
 project_folder: "C:\\projectresideo"
 
 file_paths:
-  - infra-wsus-amer_resideo_com.crt.txt    # default['os_patching']['certs'] = [ 'infra-wsus-amer_resideo_com.crt','infra-wsus-emea_resideo_com.crt','infra-wsus-aws_resideo_com.crt','infra-wsus-azure_resideo_com.crt','WPP-certs.cer']
-  - infra-wsus-emea_resideo_com.crt.txt 
-  - infra-wsus-aws_resideo_com.crt.txt 
-  - infra-wsus-azure_resideo_com.crt.txt 
-  - WPP-certs.cer.txt 
+  - infra-wsus-amer_resideo_com.crt   # default['os_patching']['certs'] = [ 'infra-wsus-amer_resideo_com.crt','infra-wsus-emea_resideo_com.crt','infra-wsus-aws_resideo_com.crt','infra-wsus-azure_resideo_com.crt','WPP-certs.cer']
+  - infra-wsus-emea_resideo_com.crt 
+  - infra-wsus-aws_resideo_com.crt
+  - infra-wsus-azure_resideo_com.crt
+  - WPP-certs.cer
 
 certs_to_install:
-  - infra-wsus-amer_resideo_com.crt.txt    
-  - infra-wsus-emea_resideo_com.crt.txt 
-  - infra-wsus-aws_resideo_com.crt.txt 
-  - infra-wsus-azure_resideo_com.crt.txt 
-  - WPP-certs.cer.txt
+  - infra-wsus-amer_resideo_com.crt   
+  - infra-wsus-emea_resideo_com.crt
+  - infra-wsus-aws_resideo_com.crt
+  - infra-wsus-azure_resideo_com.crt
+  - WPP-certs.cer
+
+WPP_certs: "C:\\projectresideo\\certificates\\WPP-certs.cer"                      #default['os_patching']['WPP-certs'] = 'WPP-certs.cer'  
