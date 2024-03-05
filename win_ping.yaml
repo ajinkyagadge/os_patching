@@ -95,7 +95,7 @@
       loop:
         - CERT:\LocalMachine\TRUSTEDPUBLISHER
         - CERT:\LocalMachine\ROOT
-        - CERT:\CurrentUser\MY
+        #- CERT:\CurrentUser\MY
 
 
     - name: Download file from GitHub Repository
