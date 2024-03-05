@@ -7,10 +7,10 @@
     - ./vars/ext_vars.yml  
   
   tasks:
-    - name: ping
+    - name: Ping Hosts
       win_ping:
     
-    - name: Print File name
+    - name: Print File Names
       ansible.builtin.debug:
         msg: "File Path1: {{ project_folder }}"
         msg: "File Path2: {{ os_patching_folder }}"
@@ -27,7 +27,7 @@
         state: directory
       when: certificates_folder is defined and certificates_folder is not none
 
-    - name: Print File Paths
+    - name: Print File Paths using the loop attribute
       ansible.builtin.debug:
         msg: "File Path: {{ item }}"
       loop: "{{ file_paths }}"
@@ -40,7 +40,7 @@
         remote_src: yes
         mode: '0664' 
 
-    - name: Copy Certificates
+    - name: Copy Certificates from main source to target folder
       win_copy:
         src: "{{ project_folder }}\\{{ item }}"
         dest: "{{ certificates_folder }}\\{{ item }}"
