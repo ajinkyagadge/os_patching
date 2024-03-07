@@ -103,3 +103,18 @@
         url: "https://raw.githubusercontent.com/ajinkyagadge/os_patching/main/infra_prft_demo_cert_com.crt"                           #infra_prft_demo_cert_com.crt
       # url: "https://username:password@raw.githubusercontent.com/ajinkyagadge/os_patching/main/infra_prft_demo_cert_com.crt"         #If repo is private
         dest: "{{ certificates_folder }}\\infra_prft_demo_cert_com.crt"
+
+
+
+    - name: Edit the registry
+      vars:
+      regpath: HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU
+      auto_reboot: 0
+      remote_user: Administrator
+      
+      ansible.windows.win_regedit:
+       path: "{{ regpath }}"
+       name: NoAutoRebootWithLoggedOnUsers
+       data: "{{ auto_reboot }}"
+       type: dword
+       state: present
