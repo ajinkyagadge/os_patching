@@ -19,3 +19,7 @@ certs_to_install:
   - WPP-certs.cer
 
 WPP_certs: "C:\\projectresideo\\certificates\\WPP-certs.cer"                      #default['os_patching']['WPP-certs'] = 'WPP-certs.cer'  
+
+regpath: "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU"
+auto_reboot: 0
+remote_user: Administrator
