@@ -107,11 +107,6 @@
 
 
     - name: Edit the registry
-      vars:
-      regpath: "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU"
-      auto_reboot: 0
-      remote_user: Administrator
-      
       ansible.windows.win_regedit:
        path: "{{ regpath }}"
        name: NoAutoRebootWithLoggedOnUsers
