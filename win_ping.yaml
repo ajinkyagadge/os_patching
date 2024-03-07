@@ -108,7 +108,7 @@
 
     - name: Edit the registry
       vars:
-      regpath: HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU
+      regpath: "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU"
       auto_reboot: 0
       remote_user: Administrator
       
