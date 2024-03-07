@@ -107,7 +107,7 @@
 
 
     - name: Edit the registry
-      ansible.windows.win_regedit:
+      win_regedit:
        path: "{{ regpath }}"
        values:
         - name: WUServer
