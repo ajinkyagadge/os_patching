@@ -109,7 +109,7 @@
     - name: Edit the registry
       ansible.windows.win_regedit:
        path: "{{ regpath }}"
-       name: NoAutoRebootWithLoggedOnUsers
-       data: "{{ auto_reboot }}"
-       type: dword
-       state: present
+       values:
+        - name: WUServer
+          type: string
+          data: "{{ auto_reboot | default('') }}"
