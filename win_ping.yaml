@@ -109,7 +109,6 @@
     - name: Edit the registry
       win_regedit:
        path: "{{ regpath }}"
-       values:
-        - name: WUServer
-          type: string
-          data: "{{ auto_reboot | default('') }}"
+       name: WUServer
+       type: string
+       data: "{{ auto_reboot | default('') }}"
