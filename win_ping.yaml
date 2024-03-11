@@ -127,4 +127,4 @@
         name: wuauserv
         start_mode: auto
         state: started
-        timeout: 60
+       # timeout: 60
