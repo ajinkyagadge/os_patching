@@ -37,7 +37,7 @@
         src: "{{ project_folder }}\\clear-softwaredistribution.ps1.j2.txt"                             # Source directory containing the script template
         dest: "{{ os_patching_folder }}\\clear-softwaredistribution.ps1"
         remote_src: yes
-        mode: '0664' 
+      #  mode: '0664' 
 
         
 
