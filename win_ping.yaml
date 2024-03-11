@@ -128,3 +128,5 @@
         start_mode: auto
         state: started
        # timeout: 60
+      async: 60
+      poll: 0
