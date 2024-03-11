@@ -83,9 +83,6 @@
         $store.Open("ReadWrite")
         $store.Add($cert)
         $store.Close()
-      # Import-PfxCertificate -FilePath $certPath -CertStoreLocation Cert:\LocalMachine\MY
-      # $certPassword = ConvertTo-SecureString -String "your_pfx_password" -Force -AsPlainText
-      # Import-PfxCertificate -FilePath $certPath -CertStoreLocation Cert:\LocalMachine\MY -Password $certPassword
       when: certificates_folder is defined
       with_items: "{{ certs_to_install }}"
 
