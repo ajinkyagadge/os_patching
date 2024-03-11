@@ -119,3 +119,12 @@
        name: WUServer
        type: string
        data: "{{ auto_reboot | default('') }}"
+
+
+
+    - name: Configure and Start Windows Update Service
+      win_service:
+        name: wuauserv
+        start_mode: auto
+        state: started
+        timeout: 60
