@@ -10,10 +10,10 @@
     - name: Ping Hosts
       win_ping:
     
-    - name: Print File Names
-      ansible.builtin.debug:
-        msg: "File Path1: {{ project_folder }}"
-        msg: "File Path2: {{ os_patching_folder }}"
+ #   - name: Print File Names
+ #     ansible.builtin.debug:
+  #      msg: "File Path1: {{ project_folder }}"
+  #      msg: "File Path2: {{ os_patching_folder }}"
 
     - name: Create os_patching directory
       win_file:
@@ -21,24 +21,31 @@
         state: directory
         recurse: yes
 
-    - name: Create certificates directory and chek it exists or not
-      ansible.windows.win_file:
-        path: "{{ certificates_folder }}"
+    - name: Create Logs directory
+      win_file:
+        path: "{{ os_patching_logs_folder }}"
         state: directory
-      when: certificates_folder is defined and certificates_folder is not none
+        recurse: yes
 
-    - name: Print File Paths using the loop attribute
-      ansible.builtin.debug:
-        msg: "File Path: {{ item }}"
-      loop: "{{ file_paths }}"
+    #- name: Print File Paths using the loop attribute
+    #  ansible.builtin.debug:
+    #    msg: "File Path: {{ item }}"
+    #  loop: "{{ file_paths }}"
 
     - name: Copy the clear-softwaredistribution.ps1 script
       ansible.windows.win_copy:
         src: "{{ project_folder }}\\clear-softwaredistribution.ps1.j2.txt"                             # Source directory containing the script template
-        #src: "{{ lookup('file', '/path/to/demofile') }}"
         dest: "{{ os_patching_folder }}\\clear-softwaredistribution.ps1"
         remote_src: yes
         mode: '0664' 
+
+        
+
+    - name: Create certificates directory and Chek it exists or not
+      ansible.windows.win_file:
+        path: "{{ certificates_folder }}"
+        state: directory
+      when: certificates_folder is defined and certificates_folder is not none
 
     - name: Copy Certificates from main source to target folder
       win_copy:
