@@ -112,7 +112,7 @@
 
     - name: Edit the registry
       win_regedit:
-        path: "HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\Windows\\WindowsUpdate"
+        path: "{{ regpath }}"
         name: "{{ item.name }}"
         type: "{{ item.type }}"
         data: "{{ item.data }}"
