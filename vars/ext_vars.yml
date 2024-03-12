@@ -39,4 +39,35 @@ wsus_setdisablepauseuxaccess: 1
 wsus_usewuserver: 1
 wsus_noautoupdate: 1
 
+registry_entries:
+  - name: WUServer
+    data: "{{ wsus_server | default('') }}"
+    type: string
+  - name: WUStatusServer
+    data: "{{ wsus_statusserver | default('') }}"
+    type: string
+  - name: TargetGroup
+    data: "{{ wsus_targetgroup | default('') }}"
+    type: string
+  - name: AcceptTrustedPublisherCerts
+    data: "{{ wsus_accepttrustedpublishercerts | default(0) }}"
+    type: dword
+  - name: ElevateNonAdmins
+    data: "{{ wsus_elevatenonadmins | default(0) }}"
+    type: dword
+  - name: TargetGroupEnabled
+    data: "{{ wsus_targetgroupenabled | default(0) }}"
+    type: dword
+  - name: DisableDualScan
+    data: "{{ wsus_disabledualscan | default(0) }}"
+    type: dword
+  - name: DoNotConnectToWindowsUpdateInternetLocations
+    data: "{{ wsus_donotconnecttowindowsupdateinternetlocations | default(0) }}"
+    type: dword
+  - name: SetDisableUXWUAccess
+    data: "{{ wsus_setdisableuxwuaccess | default(0) }}"
+    type: dword
+  - name: SetDisablePauseUXAccess
+    data: "{{ wsus_setdisablepauseuxaccess | default(0) }}"
+    type: dword
 
