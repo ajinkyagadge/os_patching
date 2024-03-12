@@ -21,6 +21,22 @@ certs_to_install:
 
 WPP_certs: "C:\\ops\\certificates\\WPP-certs.cer"                      #default['os_patching']['WPP-certs'] = 'WPP-certs.cer'  
 
-regpath: "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU"
-auto_reboot: 0
+regpath: "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate"
+#auto_reboot: 0
 #remote_user: Administrator
+
+wsus_server: "https://infra-wsus-amer.resideo.com:8531"
+wsus_statusserver: "https://infra-wsus-amer.resideo.com:8531"
+wsus_targetgroup: "CG_Builds"
+wsus_accepttrustedpublishercerts: 1
+wsus_elevatenonadmins: 0
+wsus_targetgroupenabled: 1
+wsus_disabledualscan: 1
+wsus_donotconnecttowindowsupdateinternetlocations: 1
+wsus_setdisableuxwuaccess: 1
+wsus_setdisablepauseuxaccess: 1
+
+wsus_usewuserver: 1
+wsus_noautoupdate: 1
+
+
