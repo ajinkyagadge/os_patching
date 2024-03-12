@@ -112,42 +112,11 @@
 
     - name: Edit the registry
       win_regedit:
-       path: "{{ regpath }}"
-       values:
-         - name: WUServer
-           type: string
-           data: "{{ wsus_server | default('') }}"
-         - name: WUStatusServer
-           type: string
-           data: "{{ wsus_statusserver | default('') }}"
-         - name: TargetGroup
-           type: string
-           data: "{{ wsus_targetgroup | default('') }}"
-         - name: AcceptTrustedPublisherCerts
-           type: dword
-           data: "{{ wsus_accepttrustedpublishercerts | default(0) }}"
-         - name: ElevateNonAdmins
-           type: dword
-           data: "{{ wsus_elevatenonadmins | default(0) }}"
-         - name: TargetGroupEnabled
-           type: dword
-           data: "{{ wsus_targetgroupenabled | default(0) }}"
-         - name: DisableDualScan
-           type: dword
-           data: "{{ wsus_disabledualscan | default(0) }}"
-         - name: DoNotConnectToWindowsUpdateInternetLocations
-           type: dword
-           data: "{{ wsus_donotconnecttowindowsupdateinternetlocations | default(0) }}"
-         - name: SetDisableUXWUAccess
-           type: dword
-           data: "{{ wsus_setdisableuxwuaccess | default(0) }}"
-         - name: SetDisablePauseUXAccess
-           type: dword
-           data: "{{ wsus_setdisablepauseuxaccess | default(0) }}"
-       notify: 
-       - Restart Windows Update Service
-       recursive: true
-
+        path: "HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\Windows\\WindowsUpdate"
+        name: "{{ item.name }}"
+        type: "{{ item.type }}"
+        data: "{{ item.data }}"
+      loop: "{{ registry_entries }}"
 
 
     - name: Configure and Start Windows Update Service
