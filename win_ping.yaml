@@ -27,6 +27,12 @@
         state: directory
         recurse: yes
 
+    - name: Create Utilities directory
+      win_file:
+        path: "{{ os_patching_utilities_folder }}"
+        state: directory
+        recurse: yes
+
     #- name: Print File Paths using the loop attribute                          #For Debugging Purpose
     #  ansible.builtin.debug:
     #    msg: "File Path: {{ item }}"
@@ -35,7 +41,7 @@
     - name: Copy the clear-diskspace.ps1 script
       ansible.windows.win_copy:
         src: "{{ project_folder }}\\clear-diskspace.ps1"      # Source directory containing the script template
-        dest: "{{ os_patching_folder }}\\clear-diskspace.ps1"
+        dest: "{{ os_patching_utilities_folder }}\\clear-diskspace.ps1"
         remote_src: yes
 
 
