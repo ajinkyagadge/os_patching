@@ -22,7 +22,8 @@ certs_to_install:
 
 WPP_certs: "C:\\ops\\certificates\\WPP-certs.cer"                      #default['os_patching']['WPP-certs'] = 'WPP-certs.cer'  
 
-regpath: "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate"
+regpath1: "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate"
+regpath2: "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU"
 #auto_reboot: 0
 #remote_user: Administrator
 
@@ -40,7 +41,7 @@ wsus_setdisablepauseuxaccess: 1
 wsus_usewuserver: 1
 wsus_noautoupdate: 1
 
-registry_entries:
+registry_entries1:
   - name: WUServer
     data: "{{ wsus_server | default('') }}"
     type: string
@@ -72,3 +73,12 @@ registry_entries:
     data: "{{ wsus_setdisablepauseuxaccess | default(0) }}"
     type: dword
 
+
+registry_entries2:
+  - name: wsus_usewuserver
+    data: "{{ wsus_usewuserver | default(0) }}"
+    type: dword
+  - name: wsus_noautoupdate
+    data: "{{ wsus_noautoupdate | default(0) }}"
+    type: dword
+    
