@@ -85,23 +85,7 @@
       when: certificates_folder is defined and certificates_folder is not none
       loop: "{{ file_paths }}"
 
-    #- name: Install certificates
-    #  win_pfx_certificate:
-     #   pfx_path: "{{ certificates_folder }}/{{ item }}"
-    #    store_location: LocalMachine
-    #    store_name: MY
-     #   state: present
-    #  when: certificates_folder is defined
-    #  with_items: "{{ certs_to_install }}"
 
-    #- name: Installing Certificates
-    #  win_certificate:
-    #   src: "{{ certificates_folder }}/{{ item }}"
-    #   store_name: MY
-   #    state: present
-    #   #pfx_password: "your_pfx_password"
-    #  when: certificates_folder is defined
-   #   with_items: "{{ certs_to_install }}"
 
     - name: Install certificates in Personal Store
       win_shell: |
@@ -116,10 +100,6 @@
       when: certificates_folder is defined
       with_items: "{{ certs_to_install }}"
 
-
-    #- name: Manage Windows certificates
-    #  hosts: windows_hosts
-    #  tasks:
     - name: Install certificates in Root and Trusted Publisher Stores
       win_shell: |
         $certPath = "{{ WPP_certs }}"
@@ -130,6 +110,7 @@
         - CERT:\LocalMachine\TRUSTEDPUBLISHER
         - CERT:\LocalMachine\ROOT
         #- CERT:\CurrentUser\MY
+
 
 
     - name: Download file from GitHub Repository
@@ -157,7 +138,6 @@
       loop: "{{ registry_entries2 }}"
 
   
-
 
     - name: Configure and Start Windows Update Service
       win_service:
