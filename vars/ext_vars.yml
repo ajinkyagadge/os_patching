@@ -1,9 +1,10 @@
+project_folder: "C:\\ops"                          
+
 os_patching_folder: "C:\\ops\\os_patching"             #default['os_patching']['os_patching_folder'] = 'c:\ops\os_patching'
-os_patching_logs_folder:  "C:\\ops\\os_patching\\logs" 
+os_patching_logs_folder:  "C:\\ops\\os_patching\\logs"
+os_patching_utilities_folder:  "C:\\ops\\os_patching\\utilities" 
 
 certificates_folder : "C:\\ops\\certificates"          # default['os_patching']['certs_dir'] = 'c:\ops\certs'
-
-project_folder: "C:\\ops"
 
 file_paths:
   - infra-wsus-amer_resideo_com.crt   # default['os_patching']['certs'] = [ 'infra-wsus-amer_resideo_com.crt','infra-wsus-emea_resideo_com.crt','infra-wsus-aws_resideo_com.crt','infra-wsus-azure_resideo_com.crt','WPP-certs.cer']
